@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+#'''
+#@File    :   your.yaml
+#@Time    :   2021/04/01
+#@Author  :   Garified Du
+#@Version :   1.0
+#@License :   Licensed under the CC BY-NC 4.0 license (https://creativecommons.org/licenses/by-nc/4.0/)
+#@Desc    :   config for kit training
+#'''
+
+cudnn: True
+gpuid: "0"
+seed: 7240
+port: "29500"
+save_freq: 2000
+print_freq: 10
+# dataset settings
+data_name:
+data_root:
+save_root: checkfolder
+crop_size: 256
+in_channels: 1
+out_channels: 1
+batch_size: 4
+num_threads: 4
+# model hyper parameter setting
+epoches: 200
+lr: 1e-4
+weight_decay: 0.5
+niter_decay: 50
+lr_policy: step #{lambda|step|plateau}
+lr_decay_iters: 50
+clip_grad_norm: 0
+gamma: 1.
+# optimization
+optimizer: adam
+gamma1: 0.9
+gamma2: 0.99
+loss_type: mse
+# network configuration
+weight_init: kaiming
+# eval the model in testset
+eval: False
+resume: None
